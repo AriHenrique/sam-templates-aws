@@ -1,0 +1,87 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+Description: >
+  lakeformation-permission
+
+  Sample SAM Template for lakeformation-permission
+
+Globals:
+  Function:
+    Timeout: 300
+    MemorySize: 128
+
+Parameters:
+  GroupName:
+    Type: String
+    Default: athena_query_permission
+  UserName:
+    Type: String
+    Default: user_lakeformation
+
+Resources:
+  Group:
+    Type: AWS::IAM::Group
+    Properties:
+      GroupName: !Sub ${GroupName}
+      ManagedPolicyArns:
+        - arn:aws:iam::aws:policy/AmazonAthenaFullAccess
+        - arn:aws:iam::aws:policy/AmazonS3FullAccess
+
+  UserIAM:
+    Type: AWS::IAM::User
+    Properties:
+      UserName: !Sub ${UserName}
+      Groups:
+        - !Sub ${GroupName}
+    DependsOn:
+      - Group
+  AccessKey:
+    Type: AWS::IAM::AccessKey
+    Properties:
+      UserName: !Sub ${UserName}
+    DependsOn:
+      - UserIAM
+
+  LambdaFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      FunctionName: lake-formation-permission
+      Role: !GetAtt RoleLambda.Arn
+      CodeUri: lambda/
+      Handler: app.lambda_handler
+      Runtime: python3.9
+      Environment:
+        Variables:
+          arn_permission: !GetAtt UserIAM.Arn
+
+  DataLakeSettings:
+    Type: AWS::LakeFormation::DataLakeSettings
+    Properties:
+      Admins:
+        - DataLakePrincipalIdentifier: !GetAtt RoleLambda.Arn
+
+  RoleLambda:
+    Type: AWS::IAM::Role
+    Properties:
+      RoleName: lake-formation-permission-role
+      AssumeRolePolicyDocument:
+        Version: 2012-10-17
+        Statement:
+          - Effect: Allow
+            Principal:
+              Service:
+                - lambda.amazonaws.com
+            Action:
+              - sts:AssumeRole
+      Policies:
+        - PolicyName: LakeFullPermissionLambda
+          PolicyDocument:
+            Version: 2012-10-17
+            Statement:
+              - Effect: Allow
+                Action:
+                  - s3:*
+                  - athena:*
+                  - glue:*
+                  - lakeformation:*
+                Resource: '*'
