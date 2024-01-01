@@ -1,8 +1,5 @@
 # AWS CloudFormation Template for Lake Formation Permission
-
-<p style="text-align: center;">
-<img src="arq.png" width="700">
-</p>
+![arq](arq.png)
 
 ## Description
 
