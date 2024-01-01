@@ -12,10 +12,10 @@ Antes de começar, certifique-se de ter o AWS CLI e o SAM CLI instalados. Caso c
 
 ## Templates Disponíveis
 
-| Nome do Template                                               | Disponível | Descrição                                                                               | Arquitetura                                                                   | Criado por                                    |
-|----------------------------------------------------------------|------------|-----------------------------------------------------------------------------------------|-------------------------------------------------------------------------------|-----------------------------------------------|
-| [LakeFormation Permission](templates/lakeformation-permission) | &check;    | Conceder permissões a bancos de dados e tabelas no Lakeformation a um usuário ou função | [Link para Arquitetura](/templates/lakeformation-permission/architecture.png) | [AriHenrique](https://github.com/AriHenrique) |
-| --                                                             | &cross;    | --                                                                                      | --                                                                            | --                                            |
+| Nome do Template                                               | Disponível   | Descrição                                                                               | Arquitetura                                                          | Criado por                                    |
+|----------------------------------------------------------------|--------------|-----------------------------------------------------------------------------------------|----------------------------------------------------------------------|-----------------------------------------------|
+| [LakeFormation Permission](templates/lakeformation-permission) | &check;      | Conceder permissões a bancos de dados e tabelas no Lakeformation a um usuário ou função | [Link para Arquitetura](/templates/lakeformation-permission/arq.png) | [AriHenrique](https://github.com/AriHenrique) |
+|                                                                | &cross;      |                                                                                         |                                                                      |                                               |
 
 
 ## Como Usar
@@ -25,8 +25,7 @@ Antes de começar, certifique-se de ter o AWS CLI e o SAM CLI instalados. Caso c
 3. Siga as instruções detalhadas no README específico do template.
 
 ## Utilizando o AWS SAM
-
->[!VIDEO](https://www.youtube.com/watch?v=k_TQubcn0hM&ab_channel=FooBarServerless)
+[![](img/video.png)](https://www.youtube.com/watch?v=MipjLaTp5nA&t=1s&pp=ugMICgJwdBABGAHKBQtzYW0gaW5zdGFsbA%3D%3D)
 
 Para implantar um template, utilize o comando `sam deploy`. Certifique-se de configurar suas credenciais AWS antes de prosseguir.
 

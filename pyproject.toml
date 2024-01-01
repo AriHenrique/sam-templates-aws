@@ -1,5 +1,5 @@
 [tool.poetry]
-name = "aws-ari"
+name = "sam-aws-ari"
 version = "0.1.0"
 description = ""
 authors = ["AriHenrique <arihenriquedev@hotmail.com>"]

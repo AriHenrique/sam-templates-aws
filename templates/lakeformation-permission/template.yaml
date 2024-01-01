@@ -3,44 +3,26 @@ Transform: AWS::Serverless-2016-10-31
 Description: >
   lakeformation-permission
 
-  Sample SAM Template for lakeformation-permission
+  Este é um modelo de exemplo do AWS CloudFormation para conceder permissões "all" em todos os bancos de dados e tabelas do AWS Lake Formation.
 
 Globals:
   Function:
-    Timeout: 300
+    Timeout: 120
     MemorySize: 128
 
 Parameters:
-  GroupName:
-    Type: String
-    Default: athena_query_permission
   UserName:
     Type: String
     Default: user_lakeformation
 
 Resources:
-  Group:
-    Type: AWS::IAM::Group
-    Properties:
-      GroupName: !Sub ${GroupName}
-      ManagedPolicyArns:
-        - arn:aws:iam::aws:policy/AmazonAthenaFullAccess
-        - arn:aws:iam::aws:policy/AmazonS3FullAccess
-
   UserIAM:
     Type: AWS::IAM::User
     Properties:
       UserName: !Sub ${UserName}
-      Groups:
-        - !Sub ${GroupName}
-    DependsOn:
-      - Group
-  AccessKey:
-    Type: AWS::IAM::AccessKey
-    Properties:
-      UserName: !Sub ${UserName}
-    DependsOn:
-      - UserIAM
+      ManagedPolicyArns:
+        - arn:aws:iam::aws:policy/AmazonAthenaFullAccess
+        - arn:aws:iam::aws:policy/AmazonS3FullAccess
 
   LambdaFunction:
     Type: AWS::Serverless::Function
