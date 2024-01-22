@@ -12,10 +12,10 @@ Antes de começar, certifique-se de ter o AWS CLI e o SAM CLI instalados. Caso c
 
 ## Templates Disponíveis
 
-| Nome do Template                                               | Disponível   | Descrição                                                                               | Arquitetura                                                          | Criado por                                    |
-|----------------------------------------------------------------|--------------|-----------------------------------------------------------------------------------------|----------------------------------------------------------------------|-----------------------------------------------|
-| [LakeFormation Permission](templates/lakeformation-permission) | &check;      | Conceder permissões a bancos de dados e tabelas no Lakeformation a um usuário ou função | [Link para Arquitetura](/templates/lakeformation-permission/arq.png) | [AriHenrique](https://github.com/AriHenrique) |
-|                                                                | &cross;      |                                                                                         |                                                                      |                                               |
+| Nome do Template                                                                      | Disponível   | Descrição                                                                               | Arquitetura                                                           | Criado por                                    |
+|---------------------------------------------------------------------------------------|--------------|-----------------------------------------------------------------------------------------|-----------------------------------------------------------------------|-----------------------------------------------|
+| [LakeFormation Permission](templates/lakeformation-permission)                        | &check;      | Conceder permissões a bancos de dados e tabelas no Lakeformation a um usuário ou função | [Link para Arquitetura](/templates/lakeformation-permission/arq.png)  | [AriHenrique](https://github.com/AriHenrique) |
+| [ETL Architecture for API Financial Modeling Prep](templates/financial-modeling-prep) | &check;      | Arquitetura ETL API Financial Modeling Prep utilizando DBT                              | [Link para Arquitetura](/templates/financial-modeling-prep/arq.svg)   | [AriHenrique](https://github.com/AriHenrique) |
 
 
 ## Como Usar

@@ -1,4 +1,4 @@
-# AWS CloudFormation Template for Lake Formation Permission
+# AWS CloudFormation Template para Lake Formation Permission
 
 ![arq](arq.png)
 
